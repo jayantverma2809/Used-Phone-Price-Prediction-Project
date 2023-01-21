@@ -11,7 +11,7 @@ scaler = pk.load(open('Scaler.pkl','rb'))
 def home(): 
     return render_template('index.html')
 
-@app.route('/predict/', methods=['POST']) 
+@app.route('/predict', methods=['GET','POST']) 
 def predict(): 
     if request.method == 'POST': 
         screeen_size = float(request.form['screen_size'])
