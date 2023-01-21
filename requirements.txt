@@ -1,5 +1,5 @@
-Flask==2.2.2
-numpy==1.22.0
+Flask
+numpy
 pickleshare==0.7.5
 pandas==1.3.0
 scikit-learn==1.0.2
