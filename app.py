@@ -85,8 +85,6 @@ def predict():
             prediction = np.exp(prediction)*50
 
         return render_template('predict.html', prediction_text="Current price of phone is Rs.{}".format(prediction))
-    else:
-        return render_template('index.html')
  
 if __name__ == '__main__': 
     app.run(host='0.0.0.0')
