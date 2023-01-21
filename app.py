@@ -84,7 +84,7 @@ def predict():
         elif new_price>70000 and new_price<=1000000:
             prediction = np.exp(prediction)*50
 
-        return render_template('index.html', prediction_text="Current price of phone is Rs.{}".format(prediction))
+        return render_template('predict.html', prediction_text="Current price of phone is Rs.{}".format(prediction))
     else:
         return render_template('index.html')
  
