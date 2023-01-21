@@ -1,41 +1,42 @@
 from flask import Flask, render_template, request
 import pickle as pk
 import numpy as np
+import requests
 
 app = Flask(__name__,static_folder='statics')
 model = pk.load(open('Price_Predictor.pkl','rb')) 
 scaler = pk.load(open('Scaler.pkl','rb'))
 
-@app.route('/') 
+@app.route('/',methods=['GET']) 
 def home(): 
     return render_template('index.html')
 
-@app.route('/predict/', methods=['GET','POST']) 
+@app.route('/predict/', methods=['POST']) 
 def predict(): 
     if request.method == 'POST': 
-        screeen_size = float(request.form.get('screen_size'))
+        screeen_size = float(request.form['screen_size'])
         screeen_size = np.log(screeen_size)
-        FourG = request.form.get('4g')
+        FourG = request.form['4g']
         if FourG == "Yes":
             FourG=1
         else:
             FourG=0
-        FiveG = request.form.get('5g')
+        FiveG = request.form['5g']
         if FiveG == "Yes":
             FiveG = 1
         else:
             FiveG = 0
-        rear_camera_mp = float(request.form.get('rear_camera_mp'))
+        rear_camera_mp = float(request.form['rear_camera_mp'])
         rear_camera_mp = rear_camera_mp**(1/2) 
-        front_camera_mp = float(request.form.get('front_camera_mp'))
+        front_camera_mp = float(request.form['front_camera_mp'])
         front_camera_mp = np.log(front_camera_mp)
-        internal_memory = int(request.form.get('internal_memory'))
-        ram = float(request.form.get('ram'))
-        battery = int(request.form.get('battery'))
+        internal_memory = int(request.form['internal_memory'])
+        ram = float(request.form['ram'])
+        battery = int(request.form['battery'])
         battery = np.log(battery)
-        weight = float(request.form.get('weight'))
+        weight = float(request.form['weight'])
         weight = 1/weight
-        release_year = request.form.get('release_year')
+        release_year = request.form['release_year']
         year2014,year2015,year2016,year2017,year2018,year2019,year2020 = 0,0,0,0,0,0,0
         if release_year=='2014':
             year2014 = 1
@@ -51,8 +52,8 @@ def predict():
             year2019 = 1
         elif release_year=='2020':
             year2020 = 1
-        days_used = int(request.form.get('days_used'))
-        new_price = float(request.form.get('normalized_new_price'))
+        days_used = int(request.form['days_used'])
+        new_price = float(request.form['normalized_new_price'])
         normalized_new_price = np.log(new_price)
         brand_dict = {'Acer': 4.294424174,'Alcatel': 4.026422546,'Apple': 5.011901159,'Asus': 4.4673986215,'BlackBerry': 4.2931666795000005,
                       'Celkon': 3.116621591,'Coolpad': 4.243339115,'Gionee': 4.349177705,'Google': 4.870146421,
@@ -62,7 +63,7 @@ def predict():
                       'OnePlus': 4.679163866,'Oppo': 4.69701984,'Others': 4.2107191964999995,'Panasonic': 4.282206299,
                       'Realme': 4.668802046,'Samsung': 4.51008998,'Sony': 4.527100531,'Spice': 3.6704561995000002,
                       'Vivo': 4.761831996,'XOLO': 3.947337803,'Xiaomi': 4.630935394,'ZTE': 4.360214212500001}
-        Device_Brand = request.form.get('Device_Brand')
+        Device_Brand = request.form['Device_Brand']
         Device_Brand = brand_dict[Device_Brand]
         
         test_set = np.array([[screeen_size,FourG,FiveG,rear_camera_mp,front_camera_mp,internal_memory,
