@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Jayant Verma</title>
+</head>
+<body>
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+            <img src="/statics/me.png" fill="none" class="w-11 h-11 p-0 squared-full" viewBox="0 0 0 0">
+            <span class="ml-3 text-xl">Jayant Verma</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href= "https://www.linkedin.com/in/jayantverma28" class="mr-5 hover:text-gray-900">LinkedIn</a>
+            <a href= "https://github.com/jayantverma2809" class="mr-5 hover:text-gray-900">gitHub</a>
+          </nav>
+          <div class="flex flex-col text-center w-full mb-20">
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Used Phone Price Prediction</h1>
+          </div>
+        </div>
+      </header>
+      <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+          <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="Phones" src="/statics/phones.png">
+          <div class="text-center lg:w-2/3 w-full">
+      </section>
+      <form class="text-gray-600 body-font relative" action = "{{ url_for('predict')}}" method="post">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="lg:w-1/2 md:w-2/3 mx-auto">
+            <div class="flex flex-wrap -m-2"> 
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="Device_Brand" class="leading-7 text-sm text-gray-600">Device Brand</label>
+                  <select name="Device_Brand" id="first" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <option value='Acer'>Acer</option>
+                    <option value='Alcatel'>Alcatel</option>
+                    <option value='Apple'>Apple</option>
+                    <option value='Asus'>Asus</option>
+                    <option value='BlackBerry'>BlackBerry</option>
+                    <option value='Celkon'>Celkon</option>
+                    <option value='Coolpad'>Coolpad</option>
+                    <option value='Gionee'>Gionee</option>
+                    <option value='Google'>Google</option>
+                    <option value='HTC'>HTC</option>
+                    <option value='Honor'>Honor</option>
+                    <option value='Huawei'>Huawei</option>
+                    <option value='Karbonn'>Karbonn</option>
+                    <option value='LG'>LG</option>
+                    <option value='Lava'>Lava</option>
+                    <option value='Lenovo'>Lenovo</option>
+                    <option value='Meizu'>Meizu</option>
+                    <option value='Micromax'>Micromax</option>
+                    <option value='Microsoft'>Microsoft</option>
+                    <option value='Motorola'>Motorola</option>
+                    <option value='Nokia'>Nokia</option>
+                    <option value='OnePlus'>OnePlus</option>
+                    <option value='Oppo'>Oppo</option>
+                    <option value='Panasonic'>Panasonic</option>
+                    <option value='Realme'>Realme</option>
+                    <option value='Samsung'>Samsung</option>
+                    <option value='Sony'>Sony</option>
+                    <option value='Spice'>Spice</option>
+                    <option value='Vivo'>Vivo</option>
+                    <option value='XOLO'>XOLO</option>
+                    <option value='Xiaomi'>Xiaomi</option>
+                    <option value='ZTE'>ZTE</option>
+                    <option value='Others'>Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="screen_size" class="leading-7 text-sm text-gray-600">Screen Size (In cm)</label>
+                  <input id="second" name="screen_size" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="4g" class="leading-7 text-sm text-gray-600">4G</label>
+                  <select name="4g" id="third" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="5g" class="leading-7 text-sm text-gray-600">5G</label>
+                  <select name="5g" id="fourth" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="rear_camera_mp" class="leading-7 text-sm text-gray-600">Rear Camera (In Megapixels)</label>
+                  <input id="fifth" name="rear_camera_mp" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="front_camera_mp" class="leading-7 text-sm text-gray-600">Front Camera (In Megapixels)</label>
+                  <input id="sixth" name="front_camera_mp" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="internal_memory" class="leading-7 text-sm text-gray-600">Internal Memory (In GBs)</label>
+                  <input id="seventh" name="internal_memory" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="ram" class="leading-7 text-sm text-gray-600">Ram (In GBs)</label>
+                  <input id="eighth" name="ram" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="battery" class="leading-7 text-sm text-gray-600">Battery (in mah)</label>
+                  <input id="ninth" name="battery" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="weight" class="leading-7 text-sm text-gray-600">Weight (in Grams)</label>
+                  <input id="tenth" name="weight" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="release_year" class="leading-7 text-sm text-gray-600">Release Year</label>
+                  <select name="release_year" id="eleventh" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                  </select>
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="days_used" class="leading-7 text-sm text-gray-600">Days Used</label>
+                  <input id="twelth" name="days_used" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="normalized_new_price" class="leading-7 text-sm text-gray-600">New Price (In Rs.)</label>
+                  <input id="thirteen" name="normalized_new_price" required="required" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                </div>
+              </div>
+                <button type="submit" class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Predict</button>
+              </div>
+            </div>
+          </div>
+      </form>
+      <div class="flex flex-col text-center w-full mb-20">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">{{prediction_text}}</h1>
+        <p>Sorry! Currently model can only work for phones launched between year 2013 and 2020 due to data insufficiency. Model will be updated as soon as data will be available.</p>
+      </div>
+</body>
+</html>
