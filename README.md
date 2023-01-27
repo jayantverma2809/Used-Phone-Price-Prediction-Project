@@ -5,6 +5,9 @@ This repository contains a machine learning model that predicts the prices of us
 ## Project Description
 The purpose of this project is to predict prices of the used phones using various features of a mobile phone such as brand, operating system, new price, etc.
 
+### Dataset Used
+Used Devices Dataset from Kaggle (https://www.kaggle.com/datasets/ahsan81/used-handheld-device-data)
+
 ### Methods Used
 * Data Wrangling
 * Exploratory Data Analysis
