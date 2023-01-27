@@ -72,17 +72,19 @@ def predict():
         test_set = scaler.transform(test_set)
         prediction = model.predict(test_set)
         if new_price<=10000:
+            prediction = np.exp(prediction)*7
+        elif new_price>10000 and new_price<=16000:
             prediction = np.exp(prediction)*10
-        elif new_price>10000 and new_price<=20000:
-            prediction = np.exp(prediction)*20
-        elif new_price>20000 and new_price<=30000:
+        elif new_price>16000 and new_price<=22000:
+            prediction = np.exp(prediction)*13
+        elif new_price>22000 and new_price<=27000:
+            prediction = np.exp(prediction)*16
+        elif new_price>27000 and new_price<=49999:
             prediction = np.exp(prediction)*25
-        elif new_price>30000 and new_price<=50000:
-            prediction = np.exp(prediction)*35
-        elif new_price>50000 and new_price<=70000:
-            prediction = np.exp(prediction)*40
+        elif new_price>=50000 and new_price<=70000:
+            prediction = np.exp(prediction)*30
         elif new_price>70000 and new_price<=1000000:
-            prediction = np.exp(prediction)*50
+            prediction = np.exp(prediction)*40
 
         return render_template('predict.html', prediction_text="Current price of phone is Rs.{}".format(prediction))
  
