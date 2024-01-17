@@ -1,4 +1,4 @@
-# Used-Phone-Price-Prediction-Project
+# Used-Phone-Price-Prediction-Project https://usedphonepriceprediction.azurewebsites.net/
 
 This repository contains a machine learning model that predicts the prices of used phones. The model is built using Python and Flask and is deployed as a web app on Azure.
 
